@@ -1,0 +1,43 @@
+launch ec2
+sudo apt update
+sudo apt install docker.io
+systemctl status docker
+sudo usermod -aG docker ubuntu
+logout and login again
+
+clone source code
+docker run hello-world
+
+docker login
+user and password
+
+go to the dockerfile location path
+docker build -t accountname/filename .
+docker run -it image name (normal)
+
+
+docker run -p 0000:8000 -it image name {for port]
+
+to push
+docker push containerid or name
+
+check in server with portid
+************************************
+EXAMPLE :For nginx and mysql, some images have variables
+
+docker run -d -P nginx (we will get port alloted automatically)
+docker run -P nginx (container excecuted and starts running in front and we cant use and to exit from it use ctrl+c and container exits)
+docker logs container ID - this command gives the complete log of the container
+
+For example to know the use of docker logs commands
+docker run -d -P mysql (we get the container but it will not be active so we need to use docker logs command)
+docker logs container ID of mysql
+we need to speific one of the environment variable ;
+mysql_root password
+mysql_allow empty
+mysql_random root
+
+here we give root password
+docker run -d -P -e mysql_root password=muthu mysql 
+now the container runs perfrctly at the back we can check it with docker ps -a
+

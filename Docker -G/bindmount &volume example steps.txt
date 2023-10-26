@@ -1,0 +1,22 @@
+Now we see about container bindmount :
+
+ we create a directory as sqldata 
+docker run --name sqldata -d -e MYSQL_ROOT_PASSWORD=sathish -p 3030:3306 -v /home/ubuntu/sqldata:/var/lib/mysql mysql
+now the container logs will also be saved both in local and host volume directory
+we can check it inside the mounted volume folder or directory here its mysqldata 
+/var/lib/
+docker exec -it contid /bin/bash [to go inside container]
+here we can check the msql directory for data if th container is in active state
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+Now same process but docker volume :
+
+docker volume is more practical its run by docker default we an preserve the data to use it on another container
+docker volume create <volume name>
+docker run --name sqldata -d -e MYSQL_ROOT_PASSWORD=sathish -p 3030:3306 -v <volumename>:/var/lib/mysql mysql
+switch to root user
+/var/lib/docker/volumes
+here we can check the container data
+same as the mount but docker cmd ussed to create volume {IMPORTANT} ONLY VOLUME DATA CAN BE ADDED OR USED IN FUTURE CONTAINERS MOUNT WONT WORK
+
+
